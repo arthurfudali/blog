@@ -11,17 +11,17 @@ include("conexao.php");
     <title>Blog</title>
 </head>
 <body>
-    <div class="container">
-    <table border="1" width="800">
+    <div class="container mt-5">
+    <table class="table table-hover" width="800">
         <?php 
         $query= mysqli_query($conexao, "SELECT * from blog INNER JOIN bloginfo ON blog_bloginfo_codigo = bloginfo_codigo INNER JOIN blogimgs on blog_blogimgs_codigo = blogimgs_codigo INNER JOIN usuario ON blog_usuario_codigo = usuario_codigo");
         while($exibe = mysqli_fetch_array($query)){
         ?>
         <tr>
-            <td><img src="imgs/<?php echo $exibe[9] ?>" width="200px" alt=""></td>
+            <td><img class="rounded mx-auto d-block " src="imgs/<?php echo $exibe[9] ?>" width="200px" alt=""></td>
             <td>
-                <a href="page.php?blog_codigo=<?php echo $exibe[0] ?>">
-                <h3><?php echo $exibe[7] ?></h3>
+                <a class="link-underline-opacity-0" href="page.php?blog_codigo=<?php echo $exibe[0] ?>">
+                <h3 class="title" ><?php echo $exibe[7] ?></h3>
                 Criada por <b><?php echo $exibe[11] ?></b> em <?php echo $exibe[6] ?>
                 <hr>
                 <?php  echo substr($exibe[5],0,250)."..."  ?> 
