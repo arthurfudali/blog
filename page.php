@@ -15,8 +15,8 @@ include("conexao.php");
 </head>
 
 <body>
-    <div class="container">
-        <table border="1" width="800">
+    <div class="container p-3 mt-5 rounded-4 shadow-lg">
+    <table class="table table-bordered table-striped" width="800">
             <?php
             $varblogCodigo = $_GET["blog_codigo"];
 
@@ -41,6 +41,10 @@ include("conexao.php");
 
                         <?php echo ($exibe[5]) . "..." ?>
                     </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
                 </tr>
             <?php } ?>
         </table>

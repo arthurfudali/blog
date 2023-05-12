@@ -11,10 +11,10 @@ include("conexao.php");
     <title>Blog</title>
 </head>
 <body>
-    <div class="container mt-5">
-    <table class="table table-hover" width="800">
+    <div class="container p-3 mt-5 rounded-4 shadow-lg">
+    <table class="table table-bordered table-striped" width="800">
         <?php 
-        $query= mysqli_query($conexao, "SELECT * from blog INNER JOIN bloginfo ON blog_bloginfo_codigo = bloginfo_codigo INNER JOIN blogimgs on blog_blogimgs_codigo = blogimgs_codigo INNER JOIN usuario ON blog_usuario_codigo = usuario_codigo");
+        $query= mysqli_query($conexao, "SELECT *, count(*) as imagens from blog INNER JOIN bloginfo ON blog_bloginfo_codigo = bloginfo_codigo INNER JOIN blogimgs on blog_blogimgs_codigo = blogimgs_codigo INNER JOIN usuario ON blog_usuario_codigo = usuario_codigo group by blog_bloginfo_codigo;");
         while($exibe = mysqli_fetch_array($query)){
         ?>
         <tr>
